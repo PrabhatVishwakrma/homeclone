@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <title>NoBroker Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* responsive navbar */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        #menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #333;
+                width: 100%;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                margin: 0;
+                text-align: center;
+                padding: 10px;
+                border-bottom: 1px solid #555;
+            }
+
+            #menu-toggle {
+                display: block;
+            }
+        }
+
+        #hero {
+            text-align: center;
+            padding: 40px;
+            background-color: #ddd;
+        }
+       
+        .c{
+            font-weight: bold;
+            text-align: center;
+        }
+        .b{
+            background-color: #ddd;
+        }
+        @media only screen and (max-width: 768px) {
+        /* Adjust the layout for smaller screens */
+        .d {
+            flex-direction: column; /* Stack cards vertically on smaller screens */
+            align-items: center; /* Center items on smaller screens */
+        }
+    }
+        .d{
+            display: flex;
+            justify-content: space-between;
+            
+            
+        }
+       
+       .flip-card{
+        background-color: transparent;
+        width:320px;
+        height: 200px;
+        perspective: 1000px;
+       }
+       .flip-card-inner{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+       }
+       .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* footer */
+footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        @media only screen and (max-width: 768px) {
+            footer {
+                flex-direction: column;
+            }
+
+            .footer-section {
+                flex: 1 0 100%;
+            }
+        }
+
+    </style>
+</head>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('menu-toggle').addEventListener('click', function () {
+          document.querySelector('nav').classList.toggle('show');
+      });
+  });
+</script>
+
+<body>
+
+    <header>
+        <h2>NoBroker Clone</h2>
+        <div id="menu-toggle">&#9776;</div>
+        <nav>
+            <ul>
+                <li><a href="#buy">Buy</a></li>
+                <li><a href="#rent" >Rent</a></li>
+                <li><a href="#sell" >Sell</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2>Find Your Dream Home with NoBroker Clone</h2>
+        <p>Discover properties for buy, rent, and sell without brokerage.</p>
+    </section>
+
+ 
+    <br>
+    
+<div class="c">
+    <h1><b style="color:blue; ">Our</b> HomeHub</h1>
+</div>
+<br>
+<section id="hero">
+  <h2>Below is listed your Dream Home at my site.</h2>
+  <p><b style="color: red; font-size: 18px; font-weight:100px; font-family: Brush Scipt MT, cursive;">Discover your dream home with our user-friendly website for buying homes. Browse through a vaste collection of properties, <br>from cozy starter homes 
+    to luxurious estate. Our advanced search option and detailed property listings make the process seamless. <br>
+    <br>
+  <b style="color: blue;">Find your perfect home today with our reliable and efficient home-buying plateform.</b>   </b> 
+  </p>
+</section>
+
+ <div class="d">
+    <!-- rotetion card -->
+    <div class="flip-card">
+      <h3>Location : <b style="color: red;">Mumbai</b></h3>
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://th.bing.com/th/id/OIP.vMIWETlUFWo0L8-zuHEOcQHaFj?rs=1&pid=ImgDetMain" alt="Avatar" style="width:320px;height:200px;">
+        </div>
+        <div class="flip-card-back">
+          <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+        </div>
+      </div>
+    </div>
+ <br><br><br><br>
+    <!-- 2nd flip -->
+    <div class="flip-card">
+      <h3>Location : <b style="color: red;">Ayodhya</b></h3>
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://www.adpost.com/classifieds/upload/ph/homes_offices/ph_homes_offices.131436.1.jpg
+          " alt="Avatar" style="width:320px;height:200px;">
+        </div>
+        <div class="flip-card-back">
+          <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+        </div>
+      </div>
+    </div>
+ <br><br><br><br>
+    <!-- 3rd -->
+
+    <div class="flip-card">
+      <h3>Location : <b style="color: red;">Mumbai</b></h3>
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://www.houseanddecors.com/wp-content/uploads/2018/11/01h.jpg" alt="Avatar" style="width:320px;height:200px;">
+        </div>
+        <div class="flip-card-back">
+          <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+        </div>
+      </div>
+      
+    </div>
+    <br><br><br><br>
+    <!-- 4th -->
+    <div class="flip-card">
+      <h3>Location : <b style="color: red;">Prayagraj</b></h3>
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://th.bing.com/th/id/OIP.9jx95pgGQ8-wQH_hjRYCJQHaE8?rs=1&pid=ImgDetMain" alt="Avatar" style="width:320px;height:200px;">
+        </div>
+        <div class="flip-card-back">
+          <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <br><br><br><br><br>
+
+  <div class="d">
+    <!-- rotetion card -->
+    <div class="flip-card">
+      <h3>Location : <b style="color: red;">Ayodhya</b></h3>
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://th.bing.com/th/id/OIP.vMIWETlUFWo0L8-zuHEOcQHaFj?rs=1&pid=ImgDetMain" alt="Avatar" style="width:320px;height:200px;">
+        </div>
+        <div class="flip-card-back">
+          <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+        </div>
+      </div>
+    </div>
+    <br><br><br><br>
+    <!-- 2nd flip -->
+    <div class="flip-card">
+      <h3>Location : <b style="color: red;">Varansi</b></h3>
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://th.bing.com/th/id/OIP.eIbw-1Ox_8-1ojete8zSRQHaEK?w=678&h=381&rs=1&pid=ImgDetMain
+          " alt="Avatar" style="width:320px;height:200px;">
+        </div>
+        <div class="flip-card-back">
+          <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+        </div>
+      </div>
+    </div>
+    <br><br><br><br>
+    <!-- 3rd -->
+    <div class="flip-card">
+      <h3>Location : <b style="color: red;">Lucknow</b></h3>
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://www.houseanddecors.com/wp-content/uploads/2018/11/01h.jpg" alt="Avatar" style="width:320px;height:200px;">
+        </div>
+        <div class="flip-card-back">
+          <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+        </div>
+      </div>
+      
+    </div>
+    <br><br><br><br>
+    <!-- 4th -->
+    <div class="flip-card">
+      <h3>Location : <b style="color: red;">Agra</b></h3>
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://www.houseanddecors.com/wp-content/uploads/2018/08/Bungalow-House-3.0.jpg" alt="Avatar" style="width:320px;height:200px;">
+        </div>
+        <div class="flip-card-back">
+          <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<br><br><br><br>
+
+<br><br>
+<div class="c">
+  <h1><b style="color:blue;">Our</b> Rental<b style="color: red;">House</b></h1>
+</div>
+<br>
+
+<section id="hero">
+ 
+  <p><b style="color: blue; font-size: 18px; font-weight:100px; font-family: Brush Scipt MT, cursive;">Welcome to your getway to exceptional living! Explore our curated selection of rental house, <br>each embodying distinctive charm and comfort. <br>
+  Our plateform offers an immersive experience, showcasing detailed property insights and virtual tours. <br>
+  <br>
+  <b style="color: red; font-size: 18px; font-weight:100px; font-family: Brush Scipt MT, cursive;"> Find a home that resonates with your lifestyle, where every key unlocks  world of unparalleled rental living!</b>
+  </b></p>
+</section>
+<br>
+<div class="d">
+  <!-- rotetion card -->
+  <div class="flip-card">
+    <h3>Location : <b style="color: red;">Uttar Pradesh</b></h3>
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://th.bing.com/th/id/OIP.U2zJQb4uQOzg5oiwrzaOiQHaFj?rs=1&pid=ImgDetMain" alt="Avatar" style="width:320px;height:200px;">
+      </div>
+      <div class="flip-card-back">
+        <h1>Manner Banglow</h1> 
+        <p>This is 720 sq feet area with your comfortabale price.
+          <br>
+          2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+        </p> 
+        <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br>
+  <!-- 2nd flip -->
+  <div class="flip-card">
+    <h3>Location : <b style="color: red;">Mumbai</b></h3>
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://www.houseanddecors.com/wp-content/uploads/2018/08/Bungalow-House-3.0.jpg" alt="Avatar" style="width:320px;height:200px;">
+      </div>
+      <div class="flip-card-back">
+        <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br>
+  <!-- 3rd -->
+  <div class="flip-card">
+    <h3>Location : <b style="color: red;">Uttar Pradesh</b></h3>
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://th.bing.com/th/id/OIP.dUfydSXtElX90lXtGS-PMwAAAA?w=474&h=474&rs=1&pid=ImgDetMain
+        " alt="Avatar" style="width:320px;height:200px;">
+      </div>
+      <div class="flip-card-back">
+        <h1>Manner Banglow</h1> 
+        <p>This is 720 sq feet area with your comfortabale price.
+          <br>
+          2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+        </p> 
+        <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+      </div>
+    </div>
+    
+  </div>
+  <br><br><br><br>
+  <!-- 4th -->
+  <div class="flip-card">
+    <h3>Location : <b style="color: red;">Kolkata</b></h3>
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://th.bing.com/th/id/OIP.eIbw-1Ox_8-1ojete8zSRQHaEK?w=678&h=381&rs=1&pid=ImgDetMain" alt="Avatar" style="width:320px;height:200px;">
+      </div>
+      <div class="flip-card-back">
+        <h1>Manner Banglow</h1> 
+        <p>This is 720 sq feet area with your comfortabale price.
+          <br>
+          2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+        </p> 
+        <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<br><br><br><br><br>
+
+<div class="d">
+  <!-- rotetion card -->
+  <div class="flip-card">
+    <h3>Location : <b style="color: red;">Banglore</b></h3>
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://th.bing.com/th/id/OIP.lBdrAbcxgNYJtJV1KSPAVwHaE8?w=768&h=512&rs=1&pid=ImgDetMain" alt="Avatar" style="width:320px;height:200px;">
+      </div>
+      <div class="flip-card-back">
+        <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br>
+  <!-- 2nd flip -->
+  <div class="flip-card">
+    <h3>Location : <b style="color: red;">Mumbai</b></h3>
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://www.houseanddecors.com/wp-content/uploads/2018/11/01h.jpg" alt="Avatar" style="width:320px;height:200px;">
+      </div>
+      <div class="flip-card-back">
+        <h1>Manner Banglow</h1> 
+        <p>This is 720 sq feet area with your comfortabale price.
+          <br>
+          2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+        </p> 
+        <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br>
+  <!-- 3rd -->
+  <div class="flip-card">
+    <h3>Location : <b style="color: red;">Delhi</b></h3>
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://www.houseanddecors.com/wp-content/uploads/2018/12/01-8.jpg" alt="Avatar" style="width:320px;height:200px;">
+      </div>
+      <div class="flip-card-back">
+        <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br>
+  <!-- 4th -->
+  <div class="flip-card">
+      <h3>Location : <b style="color: red;">Mumbai</b></h3>
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://th.bing.com/th/id/OIP.Qm9fayZEVmna9CSglTgdWgHaE7?w=650&h=433&rs=1&pid=ImgDetMain" alt="Avatar" style="width:320px;height:200px;">
+      </div>
+      <div class="flip-card-back">
+        <h1>Manner Banglow</h1> 
+          <p>This is 720 sq feet area with your comfortabale price.
+            <br>
+            2 bedroom, 1 kitchen, separte bathroom, <br>and a big hall.
+          </p> 
+          <p>For Booking this house <a href="booking.html" style="color: red;">Click here</a></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<br><br><br><br><br><br><br><br>
+
+<footer>
+  <div class="footer-section">
+      <h2>Home Buying</h2>
+      <ul>
+          <li><a href="#">Search Homes</a></li>
+          <li><a href="#">Buyer's Guide</a></li>
+          <li><a href="#">Mortgage Calculator</a></li>
+      </ul>
+  </div>
+
+  <div class="footer-section">
+      <h2>Home Selling</h2>
+      <ul>
+          <li><a href="#">Sell Your Home</a></li>
+          <li><a href="#">Seller's Guide</a></li>
+          <li><a href="#">Home Value Estimator</a></li>
+      </ul>
+  </div>
+
+  <div class="footer-section">
+      <h2>Rental</h2>
+      <ul>
+          <li><a href="#">Find Rentals</a></li>
+          <li><a href="#">Rental Guide</a></li>
+          <li><a href="#">Rental Application</a></li>
+      </ul>
+  </div>
+</footer>
+
+  
+  
+
+  
+
+</body>
+</html>
